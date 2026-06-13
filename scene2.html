@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Scene 2 - Panorama 360° Reruntuhan Kuno</title>
+  <script src="js/aframe.min.js"></script>
+  <script src="js/components.js"></script>
+</head>
+<body>
+  <a-scene>
+
+    <!-- ============================================================
+         PANORAMA 360° - Foto equirectangular reruntuhan kuno
+         Simpan foto sebagai assets/panorama.jpg
+    ============================================================ -->
+    <a-sky src="assets/panorama.jpg" rotation="0 -90 0"></a-sky>
+
+    <!-- ============================================================
+         KAMERA + CURSOR
+    ============================================================ -->
+    <a-entity camera look-controls position="0 1.6 0">
+      <a-cursor
+        fuse="true"
+        fuse-timeout="1500"
+        color="#DEB887"
+        raycaster="objects: .clickable">
+      </a-cursor>
+    </a-entity>
+
+    <!-- ============================================================
+         HOTSPOT A - Lengkungan Utama
+         Warna: #A0522D (coklat sienna)
+    ============================================================ -->
+    <a-entity id="hotspot-a" position="2 1.6 -4">
+      <!-- Lingkaran hotspot -->
+      <a-sphere
+        class="clickable"
+        radius="0.3"
+        color="#A0522D"
+        opacity="0.85"
+        animation="property: scale; from: 1 1 1; to: 1.2 1.2 1.2;
+                   loop: true; dir: alternate; dur: 1000">
+      </a-sphere>
+      <!-- Label teks -->
+      <a-text
+        value="Lengkungan Utama"
+        position="0 0.5 0"
+        align="center"
+        scale="1.5 1.5 1.5"
+        color="#FFE4B5"
+        look-at="[camera]">
+      </a-text>
+      <!-- Panel info (tersembunyi, muncul saat klik) -->
+      <a-entity id="panel-a" visible="false" position="0 1.2 0">
+        <a-plane width="2.5" height="1.2" color="#3D1C02" opacity="0.9"></a-plane>
+        <a-text
+          value="Lengkungan Utama\nStruktur lengkungan batu\nberusia 2000 tahun.\nDibangun dengan teknik\nromawi kuno."
+          position="0 0 0.01"
+          align="center"
+          scale="0.8 0.8 0.8"
+          color="#FFE4B5"
+          wrap-count="30">
+        </a-text>
+      </a-entity>
+    </a-entity>
+
+    <!-- ============================================================
+         HOTSPOT B - Altar Persembahan
+         Warna: #DEB887 (burlywood)
+    ============================================================ -->
+    <a-entity id="hotspot-b" position="-3 1.6 -3">
+      <a-sphere
+        class="clickable"
+        radius="0.3"
+        color="#DEB887"
+        opacity="0.85"
+        animation="property: scale; from: 1 1 1; to: 1.2 1.2 1.2;
+                   loop: true; dir: alternate; dur: 1200">
+      </a-sphere>
+      <a-text
+        value="Altar Persembahan"
+        position="0 0.5 0"
+        align="center"
+        scale="1.5 1.5 1.5"
+        color="#FFE4B5"
+        look-at="[camera]">
+      </a-text>
+      <a-entity id="panel-b" visible="false" position="0 1.2 0">
+        <a-plane width="2.5" height="1.2" color="#3D1C02" opacity="0.9"></a-plane>
+        <a-text
+          value="Altar Persembahan\nTempat ritual suci\nperadaban kuno.\nBatu altar terbuat dari\nmarmer putih asli."
+          position="0 0 0.01"
+          align="center"
+          scale="0.8 0.8 0.8"
+          color="#FFE4B5"
+          wrap-count="30">
+        </a-text>
+      </a-entity>
+    </a-entity>
+
+    <!-- ============================================================
+         HOTSPOT C - Sumur Kuno
+         Warna: #556B2F (dark olive green)
+    ============================================================ -->
+    <a-entity id="hotspot-c" position="0 1.6 -5">
+      <a-sphere
+        class="clickable"
+        radius="0.3"
+        color="#556B2F"
+        opacity="0.85"
+        animation="property: scale; from: 1 1 1; to: 1.2 1.2 1.2;
+                   loop: true; dir: alternate; dur: 800">
+      </a-sphere>
+      <a-text
+        value="Sumur Kuno"
+        position="0 0.5 0"
+        align="center"
+        scale="1.5 1.5 1.5"
+        color="#FFE4B5"
+        look-at="[camera]">
+      </a-text>
+      <a-entity id="panel-c" visible="false" position="0 1.2 0">
+        <a-plane width="2.5" height="1.2" color="#3D1C02" opacity="0.9"></a-plane>
+        <a-text
+          value="Sumur Kuno\nSumber air utama\nkota reruntuhan ini.\nKedalaman sumur\nmencapai 30 meter."
+          position="0 0 0.01"
+          align="center"
+          scale="0.8 0.8 0.8"
+          color="#FFE4B5"
+          wrap-count="30">
+        </a-text>
+      </a-entity>
+    </a-entity>
+
+    <!-- ============================================================
+         LATIHAN 3: HOTSPOT KE-4 - Kolom Romawi
+         Warna BERBEDA: #FFD700 (emas) - berbeda dari A/B/C
+         Posisi berbeda dari hotspot A/B/C
+    ============================================================ -->
+    <a-entity id="hotspot-d" position="4 1.6 -2">
+      <a-sphere
+        class="clickable"
+        radius="0.3"
+        color="#FFD700"
+        opacity="0.85"
+        blink="interval: 600"
+        animation="property: scale; from: 1 1 1; to: 1.3 1.3 1.3;
+                   loop: true; dir: alternate; dur: 900">
+      </a-sphere>
+      <a-text
+        value="Kolom Romawi"
+        position="0 0.5 0"
+        align="center"
+        scale="1.5 1.5 1.5"
+        color="#FFD700"
+        look-at="[camera]">
+      </a-text>
+      <a-entity id="panel-d" visible="false" position="0 1.2 0">
+        <a-plane width="2.5" height="1.2" color="#1A0A00" opacity="0.9"></a-plane>
+        <a-text
+          value="Kolom Romawi\nKolom bergaya Doric\nsetinggi 12 meter.\nMenjadi penopang\nutama bangunan."
+          position="0 0 0.01"
+          align="center"
+          scale="0.8 0.8 0.8"
+          color="#FFD700"
+          wrap-count="30">
+        </a-text>
+      </a-entity>
+    </a-entity>
+
+    <!-- ============================================================
+         PORTAL KEMBALI KE SCENE 1
+    ============================================================ -->
+    <a-entity position="-4 0 -3">
+      <a-torus color="#A0522D" radius="1" radius-tubular="0.05"></a-torus>
+      <a-circle color="#556B2F" opacity="0.6" radius="0.95"></a-circle>
+      <a-text
+        value="Kembali ke Scene 1"
+        position="-1 -1.3 0"
+        scale="1 1 1"
+        color="#FFE4B5">
+      </a-text>
+      <a-circle
+        class="clickable"
+        opacity="0"
+        radius="0.95"
+        id="portal-back">
+      </a-circle>
+    </a-entity>
+
+    <!-- ============================================================
+         PORTAL KE SCENE 3
+    ============================================================ -->
+    <a-entity position="4 0 -4">
+      <a-torus color="#556B2F" radius="1" radius-tubular="0.05"></a-torus>
+      <a-circle color="#A0522D" opacity="0.6" radius="0.95"></a-circle>
+      <a-text
+        value="Model 3D"
+        position="-0.5 -1.3 0"
+        scale="1 1 1"
+        color="#FFE4B5">
+      </a-text>
+      <a-circle
+        class="clickable"
+        opacity="0"
+        radius="0.95"
+        id="portal-scene3">
+      </a-circle>
+    </a-entity>
+
+    <!-- Teks judul -->
+    <a-text
+      value="Panorama - Reruntuhan Kuno"
+      position="-2 3.5 -4"
+      scale="1.5 1.5 1.5"
+      color="#DEB887">
+    </a-text>
+
+  </a-scene>
+
+  <script>
+    // Toggle panel info saat hotspot diklik
+    function togglePanel(panelId) {
+      var panel = document.querySelector('#' + panelId);
+      var isVisible = panel.getAttribute('visible');
+      // Sembunyikan semua panel dulu
+      ['panel-a', 'panel-b', 'panel-c', 'panel-d'].forEach(function(id) {
+        document.querySelector('#' + id).setAttribute('visible', false);
+      });
+      // Tampilkan panel yang diklik (toggle)
+      if (!isVisible || isVisible === 'false') {
+        panel.setAttribute('visible', true);
+      }
+    }
+
+    // Event listener untuk tiap hotspot
+    document.querySelector('#hotspot-a a-sphere').addEventListener('click', function() {
+      togglePanel('panel-a');
+    });
+    document.querySelector('#hotspot-b a-sphere').addEventListener('click', function() {
+      togglePanel('panel-b');
+    });
+    document.querySelector('#hotspot-c a-sphere').addEventListener('click', function() {
+      togglePanel('panel-c');
+    });
+    document.querySelector('#hotspot-d a-sphere').addEventListener('click', function() {
+      togglePanel('panel-d');
+    });
+
+    // Navigasi portal
+    document.querySelector('#portal-back').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+    document.querySelector('#portal-scene3').addEventListener('click', function() {
+      window.location.href = 'scene3-model.html';
+    });
+  </script>
+
+</body>
+</html>

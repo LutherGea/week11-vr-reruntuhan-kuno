@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Scene 4 - Galeri 3D Reruntuhan Kuno</title>
+  <script src="js/aframe.min.js"></script>
+  <script src="js/components.js"></script>
+</head>
+<body>
+  <a-scene>
+
+    <!-- ============================================================
+         LATIHAN 5 (BONUS): SCENE GALERI 3D<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Scene 4 - Galeri 3D Reruntuhan Kuno</title>
+  <script src="js/aframe.min.js"></script>
+  <script src="js/components.js"></script>
+</head>
+<body>
+  <a-scene>
+
+    <!-- ============================================================
+         LATIHAN 5 (BONUS): SCENE GALERI 3D
+         Berisi 3 model GLB berjajar, masing-masing diberi label
+         <a-text look-at-camera>, serta portal dua arah ke index.html
+    ============================================================ -->
+
+    <!-- LANGIT & TANAH -->
+    <a-sky color="#C2A060"></a-sky>
+    <a-plane
+      position="0 0 0"
+      rotation="-90 0 0"
+      width="50" height="50"
+      color="#8B6914"
+      shadow>
+    </a-plane>
+
+    <!-- PENCAHAYAAN -->
+    <a-light type="ambient" color="#FFE4B5" intensity="0.7"></a-light>
+    <a-light type="directional" color="#FFF5E0" intensity="1.0"
+             position="5 10 5" castShadow="true"></a-light>
+    <a-light type="point" color="#FFD700" intensity="0.5"
+             position="0 3 0"></a-light>
+
+    <!-- ============================================================
+         MODEL 1: Arca Prajnaparamita
+         File: assets/model2.glb
+         Bounding box asli ~1.9 satuan tinggi → scale 1 (≈1 unit = 1m)
+         agar tinggi tampil sekitar 1.5-2m
+    ============================================================ -->
+    <a-entity
+      id="gallery-model1"
+      gltf-model="assets/model2.glb"
+      position="-4 1 -5"
+      scale="1 1 1"
+      shadow="receive: true"
+      class="clickable">
+    </a-entity>
+    <a-text
+      value="Arca Prajnaparamita"
+      position="-4 2.6 -5"
+      align="center"
+      scale="1.2 1.2 1.2"
+      color="#FFE4B5"
+      look-at="[camera]">
+    </a-text>
+
+    <!-- ============================================================
+         MODEL 2: Altar
+         File: assets/model3.glb
+         Bounding box asli sangat besar (~13.8 satuan tinggi),
+         sehingga digunakan scale 0.13 agar tinggi tampil
+         sekitar 1.5-2m
+    ============================================================ -->
+    <a-entity
+      id="gallery-model2"
+      gltf-model="assets/model3.glb"
+      position="0 1 -5"
+      scale="0.13 0.13 0.13"
+      shadow="receive: true"
+      class="clickable">
+    </a-entity>
+    <a-text
+      value="Altar Persembahan"
+      position="0 2.6 -5"
+      align="center"
+      scale="1.2 1.2 1.2"
+      color="#FFE4B5"
+      look-at="[camera]">
+    </a-text>
+
+    <!-- ============================================================
+         MODEL 3: Chinese Vase
+         File: assets/model4.glb
+         Bounding box asli ~3.1 satuan tinggi → scale 0.55
+         agar tinggi tampil sekitar 1.5-2m
+    ============================================================ -->
+    <a-entity
+      id="gallery-model3"
+      gltf-model="assets/model4.glb"
+      position="4 1 -5"
+      scale="0.55 0.55 0.55"
+      shadow="receive: true"
+      class="clickable">
+    </a-entity>
+    <a-text
+      value="Vas Kuno"
+      position="4 2.6 -5"
+      align="center"
+      scale="1.2 1.2 1.2"
+      color="#FFE4B5"
+      look-at="[camera]">
+    </a-text>
+
+    <!-- Teks judul -->
+    <a-text
+      value="Galeri 3D - Reruntuhan Kuno"
+      position="-2.5 3.8 -5"
+      scale="1.5 1.5 1.5"
+      color="#DEB887">
+    </a-text>
+
+    <!-- ============================================================
+         KAMERA + CURSOR
+    ============================================================ -->
+    <a-entity camera look-controls wasd-controls position="0 1.6 3">
+      <a-cursor
+        fuse="true"
+        fuse-timeout="1500"
+        color="#DEB887"
+        raycaster="objects: .clickable">
+      </a-cursor>
+    </a-entity>
+
+    <!-- ============================================================
+         PORTAL DUA ARAH KE SCENE 1 (index.html)
+    ============================================================ -->
+    <a-entity position="0 0 0">
+      <a-torus color="#A0522D" radius="1" radius-tubular="0.05"></a-torus>
+      <a-circle color="#556B2F" opacity="0.6" radius="0.95"></a-circle>
+      <a-text
+        value="Kembali ke Scene 1"
+        position="-1 -1.3 0"
+        scale="1 1 1"
+        color="#FFE4B5">
+      </a-text>
+      <a-circle
+        class="clickable"
+        opacity="0"
+        radius="0.95"
+        id="portal-back">
+      </a-circle>
+    </a-entity>
+
+  </a-scene>
+
+  <script>
+    // Portal kembali ke Scene 1 (index.html)
+    document.querySelector('#portal-back').addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+</html>
+
+         Berisi 3 model GLB berjajar, masing-masing diberi label
+         <a-text look-at-camera>, serta portal dua arah ke index.html
+    ============================================================ -->
+
+    <!-- LANGIT & TANAH -->
+    <a-sky color="#C2A060"></a-sky>
+    <a-plane
+      position="0 0 0"
+      rotation="-90 0 0"
+      width="50" height="50"
+      color="#8B6914"
+      shadow>
+    </a-plane>
+
+    <!-- PENCAHAYAAN -->
+    <a-light type="ambient" color="#FFE4B5" intensity="0.7"></a-light>
+    <a-light type="directional" color="#FFF5E0" intensity="1.0"
+             position="5 10 5" castShadow="true"></a-light>
+    <a-light type="point" color="#FFD700" intensity="0.5"
+             position="0 3 0"></a-light>
+
+    <!-- ============================================================
+         MODEL 1: Arca Prajnaparamita
+         File: assets/model2.glb
+         Scale 0.012: model asli berukuran besar, diskalakan agar
+         tinggi tampil sekitar 1.5-2m
+    ============================================================ -->
+    <a-entity
+      id="gallery-model1"
+      gltf-model="assets/model2.glb"
+      position="-4 1 -5"
+      scale="0.012 0.012 0.012"
+      shadow="receive: true"
+      class="clickable">
+    </a-entity>
+    <a-text
+      value="Arca Prajnaparamita"
+      position="-4 2.6 -5"
+      align="center"
+      scale="1.2 1.2 1.2"
+      color="#FFE4B5"
+      look-at="[camera]">
+    </a-text>
+
+    <!-- ============================================================
+         MODEL 2: Altar
+         File: assets/model3.glb
+         Scale 0.8: model altar disesuaikan agar tinggi sekitar 1.5-2m
+    ============================================================ -->
+    <a-entity
+      id="gallery-model2"
+      gltf-model="assets/model3.glb"
+      position="0 1 -5"
+      scale="0.8 0.8 0.8"
+      shadow="receive: true"
+      class="clickable">
+    </a-entity>
+    <a-text
+      value="Altar Persembahan"
+      position="0 2.6 -5"
+      align="center"
+      scale="1.2 1.2 1.2"
+      color="#FFE4B5"
+      look-at="[camera]">
+    </a-text>
+
+    <!-- ============================================================
+         MODEL 3: Chinese Vase
+         File: assets/model4.glb
+         Scale 1.2: model vas disesuaikan agar tinggi sekitar 1.5-2m
+    ============================================================ -->
+    <a-entity
+      id="gallery-model3"
+      gltf-model="assets/model4.glb"
+      position="4 1 -5"
+      scale="1.2 1.2 1.2"
+      shadow="receive: true"
+      class="clickable">
+    </a-entity>
+    <a-text
+      value="Vas Kuno"
+      position="4 2.6 -5"
+      align="center"
+      scale="1.2 1.2 1.2"
+      color="#FFE4B5"
+      look-at="[camera]">
+    </a-text>
+
+    <!-- Teks judul -->
+    <a-text
+      value="Galeri 3D - Reruntuhan Kuno"
+      position="-2.5 3.8 -5"
+      scale="1.5 1.5 1.5"
+      color="#DEB887">
+    </a-text>
+
+    <!-- ============================================================
+         KAMERA + CURSOR
+    ============================================================ -->
+    <a-entity camera look-controls wasd-controls position="0 1.6 3">
+      <a-cursor
+        fuse="true"
+        fuse-timeout="1500"
+        color="#DEB887"
+        raycaster="objects: .clickable">
+      </a-cursor>
+    </a-entity>
+
+    <!-- ============================================================
+         PORTAL DUA ARAH KE SCENE 1 (index.html)
+    ============================================================ -->
+    <a-entity position="0 0 0">
+      <a-torus color="#A0522D" radius="1" radius-tubular="0.05"></a-torus>
+      <a-circle color="#556B2F" opacity="0.6" radius="0.95"></a-circle>
+      <a-text
+        value="Kembali ke Scene 1"
+        position="-1 -1.3 0"
+        scale="1 1 1"
+        color="#FFE4B5">
+      </a-text>
+      <a-circle
+        class="clickable"
+        opacity="0"
+        radius="0.95"
+        id="portal-back">
+      </a-circle>
+    </a-entity>
+
+  </a-scene>
+
+  <script>
+    // Portal kembali ke Scene 1 (index.html)
+    document.querySelector('#portal-back').addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+</html>
